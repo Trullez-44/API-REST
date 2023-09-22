@@ -7,17 +7,19 @@ const delete_data = async (id) => {
             'Content-Type': 'application/json'
         }
     };
+
+    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+window.location.reload();}
 const edit_data = async (id) => {
+    console.log(id);
     requestOptions = {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         }
     };
-
-}
     let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
-window.location.reload();}
+}
 ///////
 document.addEventListener("DOMContentLoaded", async function () {
     const userTableBody = document.getElementById("user_table_body");
