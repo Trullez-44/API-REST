@@ -7,8 +7,17 @@ const delete_data = async (id) => {
             'Content-Type': 'application/json'
         }
     };
-    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+const edit_data = async (id) => {
+    requestOptions = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
 }
+    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+window.location.reload();}
 ///////
 document.addEventListener("DOMContentLoaded", async function () {
     const userTableBody = document.getElementById("user_table_body");
@@ -35,6 +44,12 @@ document.addEventListener("DOMContentLoaded", async function () {
             item.addEventListener("click", () => {
                 console.log(item);
                 delete_data(item.id);
+            })
+        })
+        btedit.forEach((item) => {
+            item.addEventListener("click", () => {
+                console.log(item);
+                edit_data(item.id);
             })
         })
     } catch (error) {
@@ -68,7 +83,7 @@ userForm.addEventListener("submit", async function (event) {
     } catch (error) {
         console.error("error que papió todo ", error);
     }
-    // window.location.reload();
+    window.location.reload();
     ////////////////////////////////////////
     /*     const button = document.querySelector(".bttn_delet");
         button.addEventListener("click", async function(){
