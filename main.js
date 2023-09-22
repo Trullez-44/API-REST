@@ -1,9 +1,17 @@
 /////////////////////////////////////////////////
 //INTENTO 2 CON FUNCIÓN ASINCRONA PARA CARGAR LOS DATOS EN LA TABLA
-document.addEventListener("DOMContentLoaded", function () {
-    const loadButton = document.getElementById("load_data_button");
+const delete_data = async (id) => {
+    requestOptions={
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    let res= await(await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+}
+///////
+document.addEventListener("DOMContentLoaded", async function () {
     const userTableBody = document.getElementById("user_table_body");
-    loadButton.addEventListener("click", async function () {
         try {
             const response = await fetch("https://650ad623dfd73d1fab08fd97.mockapi.io/TEst");
             const data = await response.json();
@@ -15,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <td>${user.valor}</td>
                     <td>${user.caja}</td>
                     <td>
-                    <button data-id="${user.id}"class="bttn_delet">eliminar</button>
+                    <button data-id="${user.id}"class="bttn_delete">eliminar</button>
                     <button data-id="${user.id}"class="bttn_edit">editar</button>
                     </td>
                 `;
@@ -24,14 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
             console.error("error que papió todo ", error);
         }
-    });
 });
+////////////////////////////
+const btdelet = document.querySelectorAll(".bttn_delete");
+const btedit = document.querySelectorAll(".bttn_edit");
 
+btdelet.forEach((item)=>{
+    item.addEventListener("click", ()=>{
+        console.log(item.id);
+        delete_data(item.id);
+    })
+})
 //////////////////////////////////////////////////
     const userForm = document.getElementById("user_form");
     userForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const data = Object.fromEntries(new FormData(event.target));
+        // console.log(data);
         const { valor } = data;
         data.valor = (typeof valor === "string") ? Number(valor) : null;
         const requestOptions = {
@@ -44,12 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const response = await fetch("https://650ad623dfd73d1fab08fd97.mockapi.io/TEst", requestOptions);
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
         } catch (error) {
             console.error("error que papió todo ", error);
         }
+        // window.location.reload();
     ////////////////////////////////////////
-    const button = document.querySelector(".bttn_delet");
+/*     const button = document.querySelector(".bttn_delet");
     button.addEventListener("click", async function(){
         const userIdToDelete = 1;
         requestOptions = {
@@ -68,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error al eliminar el usuario:", error);
             });
     })
-        
+        */ 
         
     ///////////////////////////////
     // const userIdToUpdate = 1; // Cambia el ID según tu necesidad
