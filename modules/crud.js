@@ -15,7 +15,7 @@ userForm.addEventListener("submit", async function (event) {
         body: JSON.stringify(data)
     };
     try {
-        const response = await fetch("https://650ad623dfd73d1fab08fd97.mockapi.io/TEst", requestOptions);
+        const response = await fetch("http://127.0.0.4:5444/API-REQUEST", requestOptions);
     } catch (error) {
         console.error("error que papió todo ", error);
     }
@@ -30,7 +30,7 @@ export const delete_data = async (id) => {
             'Content-Type': 'application/json'
         }
     };
-    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+    let res = await (await fetch(`http://127.0.0.4:5444/API-REQUEST/${id}`, requestOptions)).json();
     alert(`It was deleted successfully`)
 window.location.reload();}
 
@@ -78,7 +78,7 @@ export const edit_data = async (id) => {
         },
         body: JSON.stringify(obj)
     };
-    let res = await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions);  
+    let res = await fetch(`http://127.0.0.4:5444/API-REQUEST/${id}`, requestOptions);  
     // console.log(res);
     alert(`It was updated successfully`)
     window.location.reload();

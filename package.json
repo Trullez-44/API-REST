@@ -1,0 +1,16 @@
+{
+  "name": "api-rest",
+  "version": "1.0.0",
+  "description": "# Program Objective The program's goal is to offer a complete and adaptable solution for data administration and analysis in a variety of settings, including both professional and private initiatives.",
+  "main": "main.js", 
+  "type": "module",
+  "scripts": {
+    "dev": "json-server --watch DATABASE/db.json --port 5444 --host 127.0.0.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "0.17.4"
+  }
+}

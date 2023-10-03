@@ -1,11 +1,9 @@
-import {edit_data , delete_data, userForm} from './modules/crud.js'
-
+import {edit_data, delete_data, userForm} from './modules/crud.js'
 //THIS FUNCTION GETS THE DATA FROM MOCKAPIIIIIIIIIII
-
 document.addEventListener("DOMContentLoaded", async function () {
     const userTableBody = document.getElementById("user_table_body");
     try {
-        const response = await fetch("https://650ad623dfd73d1fab08fd97.mockapi.io/TEst");
+        const response = await fetch("http://127.0.0.4:5444/API-REQUEST");
         const data = await response.json();
         userTableBody.innerHTML = "";
         data.forEach(user => {
