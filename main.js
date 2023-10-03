@@ -67,14 +67,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         })
             */
 
-    ///////////////////////////////
-    // const userIdToUpdate = 1; // Cambia el ID según tu necesidad
-    // const updatedUserData = {
-    //     name: "Nuevo nombre",
-    //     username: "Nuevo nombre de usuario",
-    //     email: "nuevo@correo.com"
-    // };
-
     // const requestOptions = {
     //     method: 'PUT',
     //     headers: {
