@@ -3,6 +3,7 @@
     margin: 0;
    font-family: monospace;
 }
+
 #test{
     margin: 0 auto;
     box-sizing: border-box;
@@ -70,9 +71,13 @@ text-align: center;
     border-width: 2px;
     padding: 5px;
 }
-#submit_calcular{
+#user_form input[type="submit"] {
     padding: 5px;
     background-color: rgb(140, 255, 127);
     border-width: 2px;
     border-radius: 10px;
+    position: relative;
+    left: 25%;
+    margin: 5%;
+
 }
