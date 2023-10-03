@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", async function () {
         data.forEach(user => {
             const row = document.createElement("tr");
             row.innerHTML = `
-                    <td>${user.id}</td>
-                    <td>${user.valor}</td>
-                    <td>${user.caja}</td>
-                    <td>
-                    <button id="${user.id}"class="bttn_delete">eliminar</button>
-                    <button id="${user.id}"class="bttn_edit">editar</button>
+                    <td class="datas">${user.id}</td>
+                    <td class="values">${user.valor}</td>
+                    <td class="caja">${user.caja}</td>
+                    <td class="buttons">
+                    <button id="${user.id}"class="bttn_delete">DELETE</button>
+                    <button id="${user.id}"class="bttn_edit">EDIT</button>
                     </td>
                 `;
             userTableBody.appendChild(row);
