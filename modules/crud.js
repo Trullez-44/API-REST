@@ -31,7 +31,7 @@ export const delete_data = async (id) => {
         }
     };
     let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
-    alert(`Se ha eliminado correctamente`)
+    alert(`It was deleted successfully`)
 window.location.reload();}
 
 //EDIT FUNCTIOOOOOOOOOOOOOOON
@@ -40,22 +40,22 @@ export const edit_data = async (id) => {
     let obj={};
     try {
         let caja = prompt(
-`Seleccione una opción
-1. Ingresó
-2. Egresó`) 
+`Select an option
+1. INCOMING
+2. OUTCOMING`) 
             if(caja ==='1'){
-                obj['caja'] = "ingreso";
+                obj['caja'] = "INCOMING";
                 // console.log(obj);
             }
             else if(caja ==='2'){
-                obj['caja'] = "egreso";
+                obj['caja'] = "OUTCOMING";
             }
             else{
-                alert("Opción inválida");
+                alert("INVALID OPTION ");
                 return;
             }
             let valor = prompt(
-                `¿Qué monto es?`)
+                `HOW MUCH IT'S?`)
             obj['valor'] = Number(valor);
           /*  }
           //
@@ -80,7 +80,7 @@ export const edit_data = async (id) => {
     };
     let res = await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions);  
     // console.log(res);
-    alert(`Se ha actualizado correctamente`)
+    alert(`It was updated successfully`)
     window.location.reload();
 }
 

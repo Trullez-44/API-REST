@@ -1,7 +1,7 @@
 *{
     padding: 0.5%;
     margin: 0;
-   
+   font-family: monospace;
 }
 #test{
     margin: 0 auto;
@@ -19,25 +19,35 @@
   
 }
 
-#headers{
-    padding: 5%;
+.headers{
+    text-align: center;
+    margin: 5px;
+    font-size: large;
+    background-color: saddlebrown;
+    border-width: 2px;
+}
+#aidi{
+    
+    width: 50px;
 }
 .datas{
     padding: 5px;
     background-color: rgb(246, 255, 0);
     border-width: 2px;
+text-align: center;
 }
 .values{
     padding: 5px;
     background-color: rgb(140, 255, 127);
     border-width: 2px;
-
+    width: 50px;
+    text-align: center;
 }
 .caja{
     padding: 5px;
     background-color: rgb(128, 128, 128);
     border-width: 2px;
-
+text-align: center;
 }
 .bttn_delete{
     position: relative;
