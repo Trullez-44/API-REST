@@ -10,15 +10,52 @@ const delete_data = async (id) => {
 
     let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
 window.location.reload();}
+////////////////////////////////
 const edit_data = async (id) => {
-    console.log(id);
+    let obj={};
+    try {
+        let caja = prompt(
+`Seleccione una opción
+1. Ingresó
+2. Egresó`) 
+            if(caja ==='1'){
+                obj['caja'] = "ingreso";
+                // console.log(obj);
+            }
+            else if(caja ==='2'){
+                obj['caja'] = "egreso";
+            }
+            else{
+                alert("Opción inválida");
+                return;
+            }
+            let valor = prompt(
+                `¿Qué monto es?`)
+            obj['valor'] = Number(valor);
+          /*  }
+          //
+        Operar ternario
+        console.log(caja1);
+        console.log(typeof(caja1));
+        caja1 = (typeof caja1=== "string") ? Number(valor) : null;
+        console.log(typeof(caja1));
+        (caja1 == 1) ? obj['caja'] = "ingreso" : (caja1 == 2) ? obj.caja ="egreso" : "Opción inválida";
+        console.log(obj.caja);
+        console.log(obj);
+         */
+    } catch (error) {
+        console.log(error)
+    }
     requestOptions = {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify(obj)
     };
-    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();
+    let res = await (await fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${id}`, requestOptions)).json();  
+    console.log(res);
+    /* window.location.reload() */;
 }
 ///////
 document.addEventListener("DOMContentLoaded", async function () {
@@ -50,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         })
         btedit.forEach((item) => {
             item.addEventListener("click", () => {
-                console.log(item);
+                // console.log(item);
                 edit_data(item.id);
             })
         })
@@ -80,6 +117,7 @@ userForm.addEventListener("submit", async function (event) {
     };
     try {
         const response = await fetch("https://650ad623dfd73d1fab08fd97.mockapi.io/TEst", requestOptions);
+        // console.log(response);
         const data = await response.json();
         // console.log(data);
     } catch (error) {
