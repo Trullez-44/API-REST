@@ -3,7 +3,7 @@ import {edit_data, delete_data, userForm} from './modules/crud.js'
 document.addEventListener("DOMContentLoaded", async function () {
     const userTableBody = document.getElementById("user_table_body");
     try {
-        const response = await fetch("http://127.0.0.4:5444/API-REQUEST");
+        const response = await fetch("http://192.168.110.206:5444/API-REQUEST");
         const data = await response.json();
         userTableBody.innerHTML = "";
         data.forEach(user => {
@@ -38,47 +38,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 });
-
-
-
-
-/* INTENTOS DE CÓDIGO INSANO */
-    ////////////////////////////////////////
-    /*     const button = document.querySelector(".bttn_delet");
-        button.addEventListener("click", async function(){
-            const userIdToDelete = 1;
-            requestOptions = {
-                method: 'DELETE'
-            };
-    
-            fetch(`https://650ad623dfd73d1fab08fd97.mockapi.io/TEst/${userIdToDelete}`, requestOptions)
-                .then(response => {
-                    if (response.status === 200) {
-                        console.log("Usuario eliminado correctamente.");
-                    } else {
-                        console.error("Error al eliminar el usuario.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Error al eliminar el usuario:", error);
-                });
-        })
-            */
-
-    // const requestOptions = {
-    //     method: 'PUT',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(updatedUserData)
-    // };
-
-    // fetch(`https://jsonplaceholder.typicode.com/users/${userIdToUpdate}`, requestOptions)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         console.log("Usuario actualizado:", data);
-    //     })
-    //     .catch(error => {
-    //         console.error("Error al actualizar el usuario:", error);
-    //     });
-

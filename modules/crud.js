@@ -15,7 +15,7 @@ userForm.addEventListener("submit", async function (event) {
         body: JSON.stringify(data)
     };
     try {
-        const response = await fetch("http://127.0.0.4:5444/API-REQUEST", requestOptions);
+        const response = await fetch("http://192.168.110.206:5444/API-REQUEST", requestOptions);
     } catch (error) {
         console.error("error que papió todo ", error);
     }
@@ -30,7 +30,7 @@ export const delete_data = async (id) => {
             'Content-Type': 'application/json'
         }
     };
-    let res = await (await fetch(`http://127.0.0.4:5444/API-REQUEST/${id}`, requestOptions)).json();
+    let res = await (await fetch(`http://192.168.110.2065444/API-REQUEST/${id}`, requestOptions)).json();
     alert(`It was deleted successfully`)
 window.location.reload();}
 
@@ -57,17 +57,7 @@ export const edit_data = async (id) => {
             let valor = prompt(
                 `HOW MUCH IT'S?`)
             obj['valor'] = Number(valor);
-          /*  }
-          //
-        INTENTO DE Operar ternario
-        console.log(caja1);
-        console.log(typeof(caja1));
-        caja1 = (typeof caja1=== "string") ? Number(valor) : null;
-        console.log(typeof(caja1));
-        (caja1 == 1) ? obj['caja'] = "ingreso" : (caja1 == 2) ? obj.caja ="egreso" : "Opción inválida";
-        console.log(obj.caja);
-        console.log(obj);
-         */
+
     } catch (error) {
         alert(`Joa manito, píllate esta ${error}`)
     }
@@ -78,7 +68,7 @@ export const edit_data = async (id) => {
         },
         body: JSON.stringify(obj)
     };
-    let res = await fetch(`http://127.0.0.4:5444/API-REQUEST/${id}`, requestOptions);  
+    let res = await fetch(`http://192.168.110.206/API-REQUEST/${id}`, requestOptions);  
     // console.log(res);
     alert(`It was updated successfully`)
     window.location.reload();
